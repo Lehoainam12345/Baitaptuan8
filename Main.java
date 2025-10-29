@@ -4,65 +4,76 @@ public class Main {
     public static void main(String[] args) {
         IQuanLySach quanLy = new QuanLySachImpl();
         Scanner sc = new Scanner(System.in);
-        int chon;
 
-        do {
+        while (true) {
             System.out.println("\n===== MENU QUẢN LÝ SÁCH =====");
-            System.out.println("1. Thêm sách giáo trình");
-            System.out.println("2. Thêm sách tiểu thuyết");
+            System.out.println("1. Thêm Sách Giao Trình");
+            System.out.println("2. Thêm Sách Tiểu Thuyết");
             System.out.println("3. Hiển thị danh sách");
-            System.out.println("4. Tìm kiếm sách theo mã");
-            System.out.println("5. Xóa sách theo mã");
+            System.out.println("4. Tìm kiếm sách");
+            System.out.println("5. Xóa sách");
             System.out.println("0. Thoát");
             System.out.print("Chọn: ");
-            chon = sc.nextInt(); sc.nextLine();
+            int ch = sc.nextInt();
+            sc.nextLine();
 
-            switch (chon) {
-                case 1:
-                    System.out.print("Nhập mã sách: "); String ma1 = sc.nextLine();
-                    System.out.print("Tiêu đề: "); String td1 = sc.nextLine();
-                    System.out.print("Tác giả: "); String tg1 = sc.nextLine();
-                    System.out.print("Số lượng: "); int sl1 = sc.nextInt();
-                    System.out.print("Giá cơ bản: "); double gcb1 = sc.nextDouble(); sc.nextLine();
-                    System.out.print("Môn học: "); String mh = sc.nextLine();
-                    quanLy.themSach(new SachGiaoTrinh(ma1, td1, tg1, sl1, gcb1, mh));
-                    break;
+            if (ch == 0) break;
 
-                case 2:
-                    System.out.print("Nhập mã sách: "); String ma2 = sc.nextLine();
-                    System.out.print("Tiêu đề: "); String td2 = sc.nextLine();
-                    System.out.print("Tác giả: "); String tg2 = sc.nextLine();
-                    System.out.print("Số lượng: "); int sl2 = sc.nextInt();
-                    System.out.print("Giá cơ bản: "); double gcb2 = sc.nextDouble(); sc.nextLine();
-                    System.out.print("Thể loại: "); String tl = sc.nextLine();
-                    quanLy.themSach(new SachTieuThuyet(ma2, td2, tg2, sl2, gcb2, tl));
-                    break;
+            switch (ch) {
+                case 1 -> {
+                    System.out.print("Tiêu đề: ");
+                    String td = sc.nextLine();
+                    System.out.print("Mã: ");
+                    String ma = sc.nextLine();
+                    System.out.print("Giá cơ bản: ");
+                    double g = sc.nextDouble();
+                    System.out.print("Số lượng tồn: ");
+                    int sl = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Vị trí: ");
+                    String vt = sc.nextLine();
+                    System.out.print("Môn học: ");
+                    String mh = sc.nextLine();
 
-                case 3:
-                    quanLy.hienThiDanhSach();
-                    break;
+                    quanLy.themSach(new SachGiaoTrinh(td, ma, g, sl, vt, mh));
+                }
+                case 2 -> {
+                    System.out.print("Tiêu đề: ");
+                    String td = sc.nextLine();
+                    System.out.print("Mã: ");
+                    String ma = sc.nextLine();
+                    System.out.print("Giá cơ bản: ");
+                    double g = sc.nextDouble();
+                    System.out.print("Số lượng tồn: ");
+                    int sl = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Vị trí: ");
+                    String vt = sc.nextLine();
+                    System.out.print("Thể loại: ");
+                    String tl = sc.nextLine();
 
-                case 4:
-                    System.out.print("Nhập mã sách cần tìm: ");
-                    String maTK = sc.nextLine();
-                    Sach s = quanLy.timKiemSach(maTK);
-                    System.out.println(s != null ? s : "Không tìm thấy!");
-                    break;
+                    quanLy.themSach(new SachTieuThuyet(td, ma, g, sl, vt, tl));
+                }
+                case 3 -> quanLy.hienThiDanhSach();
 
-                case 5:
-                    System.out.print("Nhập mã sách cần xóa: ");
-                    String maX = sc.nextLine();
-                    quanLy.xoaSach(maX);
-                    break;
+                case 4 -> {
+                    System.out.print("Nhập mã sách: ");
+                    String ms = sc.nextLine();
+                    Sach s = quanLy.timKiemSach(ms);
+                    System.out.println((s == null) ? "Không tìm thấy!" : s);
+                }
 
-                case 0:
-                    System.out.println("Thoát chương trình!");
-                    break;
+                case 5 -> {
+                    System.out.print("Nhập mã sách để xóa: ");
+                    String ms = sc.nextLine();
+                    quanLy.xoaSach(ms);
+                    System.out.println("Đã xóa nếu tồn tại.");
+                }
 
-                default:
-                    System.out.println("Lựa chọn không hợp lệ!");
+                default -> System.out.println("Lựa chọn không hợp lệ!");
             }
+        }
 
-        } while (chon != 0);
+        sc.close();
     }
 }
