@@ -1,3 +1,5 @@
+package Baitaptuan6;
+
 public interface IGiaBan {
-    double tinhGiaBan();
+     public abstract double tinhGiaBan();  
 }

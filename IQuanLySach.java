@@ -1,6 +1,8 @@
+package Baitaptuan6;
+
 public interface IQuanLySach {
-    void themSach(Sach s);
-    Sach timKiemSach(String maSach);
-    void xoaSach(String maSach);
-    void hienThiDanhSach();
+    public abstract void Them();
+    public abstract void Xoa();
+    public abstract Sach tim ();
+    public abstract void Xuat();
 }

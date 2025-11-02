@@ -1,44 +1,104 @@
-public abstract class Sach implements IGiaBan, IKiemKe {
-    private String tieuDe;
-    private String maSach;
-    private double giaCoBan;
-    private int soLuongTon;
-    private String viTri;
+package Baitaptuan6;
 
-    public Sach(String tieuDe, String maSach, double giaCoBan, int soLuongTon, String viTri) {
-        this.tieuDe = tieuDe;
-        this.maSach = maSach;
-        this.giaCoBan = giaCoBan;
-        this.soLuongTon = soLuongTon;
-        this.viTri = viTri;
+import java.util.Scanner;
+
+public abstract class Sach implements IGiaBan,IkiemKe{
+    protected String maSach;
+    protected String tieuDe;
+    protected String tacGia;
+    protected int namXuatBan;
+    protected int soLuong;
+    protected Scanner sc;
+    protected double giaCoBan; 
+    public Sach (){
+        sc =new Scanner(System.in);
     }
-
-    public String getTieuDe() { return tieuDe; }
-    public void setTieuDe(String tieuDe) { this.tieuDe = tieuDe; }
-
-    public String getMaSach() { return maSach; }
-    public void setMaSach(String maSach) { this.maSach = maSach; }
-
-    public double getGiaCoBan() { return giaCoBan; }
-    public void setGiaCoBan(double giaCoBan) { this.giaCoBan = giaCoBan; }
-
-    public int getSoLuongTon() { return soLuongTon; }
-    public void setSoLuongTon(int soLuongTon) { this.soLuongTon = soLuongTon; }
-
-    public String getViTri() { return viTri; }
-    public void setViTri(String viTri) { this.viTri = viTri; }
-
-    @Override
-    public boolean kiemTraTonKho(int soLuongToiThieu) {
-        return soLuongTon >= soLuongToiThieu;
+    public Sach (String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan){
+        this.maSach=maSach;
+        this.tieuDe=tieuDe;
+        this.tacGia=tacGia;
+        this.namXuatBan=namXuatBan;
+        this.soLuong=soLuong;
+        this.giaCoBan=giaCoBan;
+        sc =new Scanner(System.in);
     }
-
-    @Override
-    public void capNhatViTri(String viTriMoi) {
-        this.viTri = viTriMoi;
-        System.out.println("Đã chuyển sách " + tieuDe + " đến khu vực: " + viTriMoi);
+    public Sach (String maSach, String tieuDe, String tacGia, int namXuatBan){
+        this.maSach=maSach;
+        this.tieuDe=tieuDe;
+        this.tacGia=tacGia;
+        this.namXuatBan=namXuatBan;
     }
+    public Sach (String maSach, String tieuDe, String tacGia){
+        this.maSach=maSach;
+        this.tieuDe=tieuDe;
+        this.tacGia=tacGia;
+    }
+    public Sach (String maSach, String tieuDe ){
+        this.maSach=maSach;
+        this.tieuDe=tieuDe;
+    }
+    public String getmasach(){
+        return maSach;
+    }
+    public String gettieude(){
+        return tieuDe;
+    }
+    public String gettacgia(){
+        return tacGia;
+    }
+    public int getnamxuatban(){
+        return namXuatBan;
+    }
+    public int getsoluong(){
+        return soLuong;
+    }
+    public double getgiaCoBan(){
+        return giaCoBan;
+    }
+    public void setmasach(String maSach){
+        this.maSach=maSach;
+    }
+    public void settieude(String tieuDe){
+        this.tieuDe=tieuDe;
+    }
+    public void settacgia(String tacGia){
+        this.tacGia=tacGia;
+    }
+    public void setnamxuatban(int namXuatBan){
+        this.namXuatBan=namXuatBan;
+    }
+    public void setsoLuong (int soLuong){
+        this.soLuong=soLuong;
+    }
+    public void setgiaCoBan(double giaCoBan){
+        this.giaCoBan=giaCoBan;
+    }
+    public void Nhap(){
+        System.out.println("Nhap maSach: ");
+        this.maSach=sc.nextLine();
+        System.out.println("Nhap tieuDe: ");
+        this.tieuDe=sc.nextLine();
+        System.out.println("Nhap tacGia: ");
+        this.tacGia=sc.nextLine();
+        System.out.println("Nhap namXuatBan: ");
+        this.namXuatBan=Integer.parseInt(sc.nextLine());
+        System.out.println("Nhap soLuong: ");
+        this.soLuong=Integer.parseInt(sc.nextLine());
+        System.out.println("Nhap giaCoBan: ");
+        this.giaCoBan=Double.parseDouble(sc.nextLine());
+    }
+    public String toString(){
+        return "maSach="+this.maSach+" /tieuDe="+this.tieuDe+" /tacgia="+this.tacGia+" /namXuatBan="+this.namXuatBan+" /soLuong="+this.soLuong+" /giaCoBan"+this.giaCoBan;
+    }
+    public void hienThiThongTin() {
+        System.out.println("maSach: "+maSach);
+        System.out.println("tieuDe: "+tieuDe);
+        System.out.println("tacgia: "+tacGia);
+        System.out.println("namXuatBan: "+namXuatBan);
+        System.out.println("soLuong: "+soLuong);
+        System.out.println("giaCoBan"+giaCoBan);
+    }
+    public abstract double tinhGiaBan(); 
+    
 
-    @Override
-    public abstract String toString();
 }
