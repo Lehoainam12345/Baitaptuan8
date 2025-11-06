@@ -88,14 +88,15 @@ public abstract class Sach implements IGiaBan,IkiemKe{
         this.giaCoBan=Double.parseDouble(sc.nextLine());
     }
     public String toString(){
+        //thêm
         if (this.namXuatBan >= 2026) {
         System.out.println("Nam xuat ban khong hop le!");
         System.exit(0); 
         }
         return "maSach="+this.maSach+" /tieuDe="+this.tieuDe+" /tacgia="+this.tacGia+" /namXuatBan="+this.namXuatBan+" /soLuong="+this.soLuong+" /giaCoBan"+this.giaCoBan;
     }
-    ////////////////////////////
     public void hienThiThongTin() {
+        //thêm
         if (this.namXuatBan >= 2026) {
         System.out.println("Nam xuat ban khong hop le!");
         System.exit(0); 

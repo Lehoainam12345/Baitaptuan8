@@ -13,7 +13,8 @@ public class Test{
             System.out.println("YEU CAU:");
             System.out.println("1. Xuat");
             System.out.println("2. Capnhat");
-            System.out.println("3. Them");
+            System.out.println("3. Xoa");
+            System.out.println("4. Them");
             System.out.println("Chon=");
             chon =sc.nextLine().toUpperCase().charAt(0);
             switch (chon) {
@@ -22,6 +23,10 @@ public class Test{
                     break;
                 case '2':
                     sach1.capnhat();
+                    break;
+                case '3':
+                    sach1.Xoa();
+                    break;
                 default:
                     sach1.Them();
                     break;
@@ -35,7 +40,7 @@ public class Test{
             "SGT001",                 
             "Lap trinh java co ban",  
             "Pham Nhat Khoa",          
-            2500,                   
+            2024,                   
             99,                      
             150000,                 
             "Dai hoc",               
