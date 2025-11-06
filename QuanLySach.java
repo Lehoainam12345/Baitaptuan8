@@ -34,7 +34,7 @@ public class QuanLySach implements IQuanLySach{
             }
             if(listsach!=null)
                 ListSach.add(listsach);
-            System.out.println("nhap ky tu 'y' de tiep tuc và ky tu bat ky de ket thuc");
+            System.out.println("nhap ky tu 'y' de tiep tuc và ky tu bat ky de ket thuc chuong trinh nhap");
             c=sc.nextLine().toLowerCase().charAt(0);
         }
     }
